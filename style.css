@@ -1,10 +1,10 @@
-@import url('https://fonts.googleapis.com/css2?family=DM+Sans&family=IBM+Plex+Serif:wght@300;400;700&family=Poppins&family=Roboto:wght@300;400&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=DM+Sans&family=IBM+Plex+Mono:wght@300;400&family=Poppins&family=Roboto:wght@300;400&display=swap');
 
 /* 
     font-family: 'DM Sans', sans-serif;
     font-family: 'Poppins', sans-serif;
     font-family: 'Roboto', sans-serif;
-    font-family: 'IBM Plex Serif', serif;
+    font-family: 'IBM Plex Mono', monospace;
 
 
 */
@@ -21,7 +21,7 @@
 }
 
 body{
-    font-family: 'IBM Plex Serif', serif;
+    font-family: 'IBM Plex Mono', monospace;
     padding: 0;
     margin: 0;
 }
@@ -57,6 +57,33 @@ a{
     background-color: var(--light);
 }
 
+/* Body night dark mode */
+
+body.night .bg-light{
+    background-color: var(--navbar);
+}
+
+body.night .nav-brand{
+    color: var(--secondary);
+    font-weight: bold;
+    align-self: center;
+    font-size: 32px;
+}
+
+body.night .nav-link{
+    font-size: 20px;
+    margin: 12px;
+    color: var(--secondary);
+    font-family: 'IBM Plex Mono', monospace;
+    font-weight: 500;
+}
+
+body.night .nav-link:hover{
+    color: var(--light);
+}
+
+
+
 /* Container */ 
 
 .container{
@@ -67,7 +94,9 @@ a{
 }
 
 .img-fluid{
-    width: 100%;
+    
+    width: 360px;
+    height: 360.454px;
 }
 
 .overflow-img:hover{
@@ -227,12 +256,16 @@ header.night{
     color: var(--primary-color);
 }
 
+.nav-link:visited{
+    background-color: #e90c0c;
+}
 
 .nav-link{
-    font-size: 18px;
+    font-size: 20px;
     margin: 12px;
     color: var(--dark);
-    font-family: 'Poppins', sans-serif;
+    font-family: 'IBM Plex Mono', monospace;
+    font-weight: 500;
 }
 
 .toggle-button{
@@ -263,11 +296,11 @@ header.night{
 }
 
 .grid{
-    margin: 0 auto;
+    margin: 0 40px;
 }
 
 .grid .grid-item{
-    width: calc(33.3333% - 20px);
+    width: calc(33.3333% - 15px);
     margin-bottom: 3em;
 }
 
@@ -355,7 +388,7 @@ header.night{
 }
 body.night{
     background: #21242d;
-    color: #000;
+    color: #fff;
 }
 
 
