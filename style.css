@@ -1,10 +1,11 @@
-
-@import url('https://fonts.googleapis.com/css2?family=DM+Sans&family=Poppins&family=Roboto:wght@300;400&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=DM+Sans&family=IBM+Plex+Serif:wght@300;400;700&family=Poppins&family=Roboto:wght@300;400&display=swap');
 
 /* 
     font-family: 'DM Sans', sans-serif;
     font-family: 'Poppins', sans-serif;
     font-family: 'Roboto', sans-serif;
+    font-family: 'IBM Plex Serif', serif;
+
 
 */
 /* CSS Root */
@@ -12,14 +13,15 @@
 :root{
     --light: #f8f9fa;
     --secondary: #adb5bd;
-    --dark: #343a40;
+    --dark: #4B505E;
     --primary-color: #e90c0c;
     --secondary-color: #2ec4b6;
     --border: #e9ecef;
+    --navbar: #272c39;
 }
 
 body{
-    font-family: 'Roboto', sans-serif;
+    font-family: 'IBM Plex Serif', serif;
     padding: 0;
     margin: 0;
 }
@@ -34,6 +36,7 @@ a{
 
 /* Global Style */ 
 
+/* Global Text */
 .text-light{
     color: var(--light);
 }
@@ -53,6 +56,8 @@ a{
 .bg-light{
     background-color: var(--light);
 }
+
+/* Container */ 
 
 .container{
     max-width: 1200px;
@@ -74,8 +79,6 @@ a{
     font-family: 'DM Sans', sans-serif;
     font-weight: bold;
 }
-
-
 
 .secondary-title{
     font-family: 'Poppins', sans-serif;
@@ -197,6 +200,10 @@ a{
 /* Section style */
 /* --- Navigation Menu --- */
 
+header.night{
+    background-color: #21242d;
+}
+
 .navbar{
     position: relative;
     display: flex;
@@ -219,6 +226,7 @@ a{
 .nav-link:hover{
     color: var(--primary-color);
 }
+
 
 .nav-link{
     font-size: 18px;
@@ -331,6 +339,25 @@ a{
     background-color: var(--primary-color);
     color: var(--light);
 }
+
+/* --- dark mode --- */ 
+.dark-change{
+    cursor: pointer;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+.dark-change.active:before{
+    left: 24px;
+    background: #fff;
+}
+body.night{
+    background: #21242d;
+    color: #000;
+}
+
 
 
 /* ----------- sticky ------- */
