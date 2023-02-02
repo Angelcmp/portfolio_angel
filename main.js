@@ -37,3 +37,4 @@ var content = document.getElementsByTagName('body')[0];
             darkMode.classList.toggle('active');
             content.classList.toggle('night');
         })
+
