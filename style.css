@@ -40,12 +40,12 @@ a{
 
 .first-block{
     position: absolute;
-    width: 100%;
+    width: 0%;
     height: 100vh;
     background: #272727;
-    animation: go-left 5s cubic-bezier(.74, .86, .4, .92) forwards;
-    left: 0;
-    z-index: 1000;
+    animation: go-left 4s cubic-bezier(.74, .86, .4, .92) forwards;
+    left: 0%;
+    z-index: 1;
 }
 
 @keyframes go-left {
@@ -265,13 +265,13 @@ body.night .text-secondary{
 
 /* Image Hover Effect */
 
-img{
+.overflow-img{
     display: block;
     width: 360px;
     height: 360px;
 }
 
-.content{
+.content-blog{
     position: absolute;
     top: 45%;
     left: 50%;
@@ -430,6 +430,29 @@ header.night{
     font-family: 'Poppins', sans-serif;
 }
 
+/* ----------- about page ------------ */
+
+.image-section{
+    float: right;
+    width: 30%;
+    display: block;
+    margin: 0 25px;
+}
+.image-section img{
+    width: 339.75px;
+    height: 439.75px;
+    border-radius: 10px;
+}
+
+.underline{
+    border-bottom: 1px solid var(--btn-hover);
+    border-color: rgba(233,12,12,.2)
+}
+
+.underline:hover{
+    border-color: var(--secondary);
+}
+
 /* ----------- sidebar page ------- */
 #sidebar .categories a{
     padding: 1em 3em;
@@ -530,6 +553,15 @@ body.night{
     #site-main{
         margin-top: 14em;
     }
+    .image-section{
+        float: none;
+        width: 95%;
+    }
+    .image-section img{
+        display: block;
+        margin: auto;
+
+    }
 }
 
 @media (max-width : 768px){
@@ -541,6 +573,15 @@ body.night{
         flex: 0 0 100%;
         max-width: calc(100% - 50px);
         padding-top: 40px 50px;
+    }
+    .image-section{
+        float: none;
+        width: 95%;
+    }
+    .image-section img{
+        display: block;
+        margin: auto;
+
     }
 }
 
@@ -578,6 +619,15 @@ body.night{
 
     .dark-change{
         display: none;
+    }
+
+    .image-section{
+        float: none;
+        width: 90%;
+    }
+    .image-section img{
+        display: block;
+
     }
 
 }
