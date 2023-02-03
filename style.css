@@ -155,6 +155,11 @@ body.night .text-secondary{
     font-size: 14px;
 }
 
+.display-4{
+    font-size: 2.4rem;
+}
+
+
 .text-center{
     text-align: center;
 }
@@ -430,6 +435,16 @@ header.night{
     font-family: 'Poppins', sans-serif;
 }
 
+.pagination-clear{
+    margin: 34px 0 68px;
+    padding: 17px 0;
+    border: 1px solid #e6e6e6;
+    border-width: 1px 0;
+}
+
+
+
+
 /* ----------- about page ------------ */
 
 .image-section{
@@ -451,6 +466,31 @@ header.night{
 
 .underline:hover{
     border-color: var(--secondary);
+}
+
+/* ------------- blog page ----------------*/
+
+.mt-4{
+    margin: 0 0 1em;
+}
+
+.text-title-blog{
+    font-family: 'DM Sans', sans-serif;
+    font-weight: bold;
+}
+
+.text-title-blog:hover{
+    color: var(--secondary);
+    cursor: pointer;
+    text-transform: none;
+}
+
+.color-link, .color-link:visited{
+    color: inherit;
+}
+
+.text-primary:hover{
+    color: var(--page-current);
 }
 
 /* ----------- sidebar page ------- */
