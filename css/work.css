@@ -1,15 +1,5 @@
 @import url('https://fonts.googleapis.com/css2?family=DM+Sans&family=IBM+Plex+Mono:wght@300;400&family=Poppins&family=Roboto:wght@300;400&display=swap');
 
-/* 
-    font-family: 'DM Sans', sans-serif;
-    font-family: 'Poppins', sans-serif;
-    font-family: 'Roboto', sans-serif;
-    font-family: 'IBM Plex Mono', monospace;
-
-
-*/
-/* CSS Root */
-
 :root{
     --light: #f8f9fa;
     --secondary: #adb5bd;
@@ -36,6 +26,12 @@ a{
 *>*{
     box-sizing: border-box;
 }
+
+img{
+    max-width: 100%;
+    height: auto;
+}
+
 
 /* Landing Page Effect*/
 
@@ -64,7 +60,6 @@ a{
     }
 }
 
-
 /* Global Style */ 
 
 /* Global Text */
@@ -86,39 +81,6 @@ a{
 
 .bg-light{
     background-color: var(--light);
-}
-
-/* Body night dark mode */
-
-body.night .bg-light{
-    background-color: var(--navbar);
-}
-
-body.night .nav-brand{
-    color: var(--secondary);
-    font-weight: bold;
-    align-self: center;
-    font-size: 32px;
-}
-
-body.night .nav-link{
-    font-size: 20px;
-    margin: 12px;
-    color: var(--secondary);
-    font-family: 'IBM Plex Mono', monospace;
-    font-weight: 500;
-}
-
-body.night .nav-link:hover{
-    color: var(--light);
-}
-
-body.night .text-dark{
-    color: var(--light);
-}
-
-body.night .text-secondary{
-    color: var(--secondary);
 }
 
 /* Container */ 
@@ -321,217 +283,108 @@ header.night{
     outline: none;
 }
 
-/* --- Navigation Menu --- */
-/* -- Main Section -- */
-
-#site-main{
-    margin-top: 8em;
+/*========== REUSED ===========*/
+.container{
+    padding-inline: 15px;
+    margin-inline: auto;
 }
 
-#posts{
-    margin-bottom: 5em;
+/*========== FILTER ===========*/
+.filter-grid-portfolio{
+    padding-top: 150px;
+    margin-bottom: 10px;
+}
+
+.filter-list{
+    text-align: center;
+    font-family: var(--font-mon);
+    font-weight: var(--fw-5);
+    color: var(--title-color);
+    margin: 10px 0;
+    font-size: var(--fs-10);
+}
+
+.filter-list li{
+    display: inline-block;
+    position: relative;
+    margin: 0 10px;
+    border-bottom: 2px solid transparent;
+    cursor: pointer;
+}
+
+.filter-list li::before{
+    position: absolute;
+    content: "";
+    bottom: 0;
+    width: 0%;
+    display: block;
+    background-color: var(--second-color);
+    height: 2px;
+    transition: var(--transition);
+}
+
+.filter-list li.is-active::before, .filter-grid-portfolio li:hover::before{
+    width: 100%;
+}
+
+/*========== Portfolio ===========*/
+
+.grid-gallery{
+    width: 100%;
+    padding-top: 40px;
+}
+
+.grid-item{
+    float: left;
+    position: relative;
+    padding: 10px 10px;
+}
+
+.grid_item-rollover{
+    position: absolute;
+    z-index: 4;
+    background-color: rgba(255, 255, 255, .8);
+    width: calc(100% - 80px);
+    height: calc(100% - 80px);
+    margin-inline: auto;
+    display: grid;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    top: 40px;
+    left: 40px;
+    opacity: 0;
+    transition: opacity .5s ease;
+}
+
+.grid-item:hover .grid_item-rollover{
+    opacity: 1;
+}
+
+.titleinfo{
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 14px;
+    font-weight: 500;
+    color: var(--page-current);    
+}
+
+.tagsinfo{
+    font-family: 'IBM Plex Mono', monospace;
+    color: var(--primary-color);
+    font-weight: 500;
+    letter-spacing: .8;
+}
+
+.pages{
+    text-align: center;
+    margin: 30px;
+
+    
 }
 
 /* ----------- Footer ---------- */
 #footer{
     padding-top: 4em;
-}
-
-
-#footer .copyrights{
-    padding: 10px 0;
-    box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
-}
-
-/* ------------ Home Page ----------- */
-#site-home{
-    margin-top: 5em;
-    margin-bottom: 5em;
-}
-
-.container-home{
-    max-width: 1200px;
-    padding: 0 15px;
-    margin: auto;
-    
-}
-
-.text-home{
-    font-family: 'IBM Plex Mono', monospace;
-    color: var(--dark);
-    font-weight: 900;
-    text-transform: uppercase;
-    display: flex;
-    height: 100vh;
-}
-
-.wrapper{
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    
-}
-
-.wrapper .line{
-    width: 80%;
-    height: 70px;
-    position: relative;
-    overflow: hidden;
-}
-
-.wrapper .line span{
-    position: absolute;
-    font-size: 2rem;
-    line-height: 4.2rem;
-}
-
-.text-decoration{
-    font-size: 90px;
-    font-weight: 900;
-    text-decoration: none;
-    background: linear-gradient(to right, #CCC 50%, #ff3535 50%, #cf1e1e);
-    background-size: 200%;
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-    transition: 0.5s ease-out;
-    font-family: 'IBM Plex Mono', monospace;
-    cursor: pointer;
-    margin-bottom: 0.5em;
-}
-
-.text-decoration:hover{
-    background-position: -100%;
-}
-
-.explore-work{
-    margin-top: 23px;
-    background-color: transparent;
-    border: 0px;
-    font-size: 23px;
-    font-weight: 500;
-    cursor: pointer;
-    color: var(--secondary);
-    opacity: 0.8;
-    transition: 0.7s ease-out;
-    letter-spacing: -0.1px;
-    position: relative;
-    
-}
-
-.explore-work:hover{
-    color: #cf1e1e;
-    transition: 0.7s ease-out;;
-}
-
-.explore-work:active, :visited{
-    color: inherit;
-}
-
-/* ----------- Article Page ------- */
-
-#post{
-    padding: 0 2em;
-    margin-bottom: 4em;
-}
-
-.post-footer .post-author{
-    position: relative;
-    margin-top: 4em;
-    background-color: var(--light);
-}
-
-.post-footer .post-author::after{
-    background-color: white;
-    content: '';
-    position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    height: 4em;
-    z-index: 0;
-}
-
-.post-footer .post-author .author-avatar{
-    margin: 0 auto;
-    margin-bottom: 1em;
-    position: inherit;
-    z-index: 1;
-}
-
-.post-footer .post-comments .reply{
-    padding-left: 7em;
-}
-
-.form-control{
-    width: 100%;
-    border: 2px solid var(--border);
-    padding: 1em;
-    font-size: 18px;
-    margin-right: 10px;
-    font-family: 'Poppins', sans-serif;
-}
-
-.pagination-clear{
-    margin: 34px 0 68px;
-    padding: 17px 0;
-    border: 1px solid #e6e6e6;
-    border-width: 1px 0;
-}
-
-/* ----------- About Page ------------ */
-
-.image-section{
-    float: right;
-    width: 30%;
-    display: block;
-    margin: 0 25px;
-}
-.image-section img{
-    width: 339.75px;
-    height: 439.75px;
-    border-radius: 10px;
-}
-
-.underline{
-    border-bottom: 1px solid var(--btn-hover);
-    border-color: rgba(233,12,12,.2)
-}
-
-.underline:hover{
-    border-color: var(--secondary);
-}
-
-/* ------------- Blog Page ----------------*/
-
-.mt-4{
-    margin: 0 0 1em;
-}
-
-.text-title-blog{
-    font-family: 'DM Sans', sans-serif;
-    font-weight: bold;
-    transition: 0.8s;
-}
-
-.text-title-blog:hover{
-    color: var(--secondary);
-    cursor: pointer;
-    text-transform: none;
-    transition: 0.8s;
-}
-
-.color-link, .color-link:visited{
-    color: inherit;
-}
-
-.text-primary{
-    color: var(--primary-color);
-    transition: 0.7s;
-}
-
-.text-primary:hover{
-    color: var(--page-current);
-    transition: 0.7s;
 }
 
 /* --- dark mode --- */ 
@@ -552,41 +405,157 @@ body.night{
     color: #fff;
 }
 
-/* ----------- sticky ------- 
 
-.sticky{
-    position: fixed;
-    top: 0;
-    z-index: 99;
-    width: 100%;
+/* Body night dark mode */
+
+body.night .bg-light{
+    background-color: var(--navbar);
 }
 
-.sticky + .content{
-    padding-top: 60px;
+body.night .nav-brand{
+    color: var(--secondary);
+    font-weight: bold;
+    align-self: center;
+    font-size: 32px;
 }
 
-*/
-
-/* -- Media Query -- */
-
-.row{
-    display: flex;
+body.night .nav-link{
+    font-size: 20px;
+    margin: 12px;
+    color: var(--secondary);
+    font-family: 'IBM Plex Mono', monospace;
+    font-weight: 500;
 }
 
-.col-3{
-    flex: 0 0 33.3333%;
-    max-width: 33.3333%;
-    padding-right: 35px;
+body.night .nav-link:hover{
+    color: var(--light);
 }
 
-.col-8{
-    flex: 0 0 70%;
-    max-width: 70%;
+body.night .text-dark{
+    color: var(--light);
 }
 
-.col-4{
-    flex: 0 0 30%;
-    max-width: 30%;
+body.night .text-secondary{
+    color: var(--secondary);
+}
+
+#footer .copyrights{
+    padding: 10px 0;
+    box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
+}
+
+@media(min-width: 576px) {
+    .container{
+        width: 540px;
+        max-width: 100%;
+    }
+
+    .filter-list{
+        --fs-10: 18px;
+    }
+
+    .filter-list li{
+        margin: 0 20px;
+    }
+}
+
+
+
+@media (min-width: 768px) {
+    .container{
+        width: 720px;
+        max-width: 100%;
+    }
+
+    .grid-gallery{
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+    }
+
+    .grid-item:nth-child(2){
+        grid-row: 1 / span 2;
+    }
+
+    .grid-item:nth-child(6){
+        grid-row: 4 / span 2;
+    }
+}
+
+@media  (min-width: 992px){
+    .container{
+        width: 960px;
+        max-width: 100%;
+    }
+
+    .header{
+        padding: 45px 30px;
+    }
+
+    .nav_close,
+    .nav_button{
+        display: none;
+    }
+
+    .nav_menu{
+        all: unset;
+    }
+
+    .nav_list{
+        flex-direction: row;
+        gap: 15px;
+    }
+
+    .nav_link{
+        margin-inline: 24px;
+        color: var(--title-color);
+        font-size: 12px;
+        font-weight: var(--fw-6);
+        color: #999999;
+    }
+
+    .nav_link.active,
+    .nav_link:hover{
+        color: var(--title-color);
+    }
+
+    .nav_link.active::before{
+        left: 0;
+        margin-left: 0;
+        height: 2px;
+    }
+
+    .hero.section{
+        padding-block: 0;
+        margin-block: 150px 150px;
+    }
+
+    .hero .content{
+        -webkit-box-flex: 0;
+        flex: 0 0 58%;
+        max-width: 58%;
+    }
+    
+    .filter-list li{
+        margin: 0 40px;
+    }
+
+    .loadmore span{
+        margin: 93px 0;
+    }
+
+    .footer{
+        padding: 80px 0 50px;
+    }
+
+}
+
+@media (min-width: 1024px){
+    .container{
+        width: 1240px;
+        max-width: 100%;
+    }
+    
+
 }
 
 @media (max-width : 1024px){
@@ -608,6 +577,7 @@ body.night{
         flex: 0 0 100%;
         max-width: 100%;
     }
+    
 
 }
 
@@ -640,6 +610,7 @@ body.night{
     #posts{
         padding: 0px 100px;
     }
+    
 }
 
 @media (max-width : 574px){
