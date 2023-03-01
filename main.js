@@ -41,12 +41,12 @@ var content = document.getElementsByTagName('body')[0];
 // Lines animation
 const textrev = gsap.timeline();
 
-textrev.from(".line span", 1.8,{
+textrev.from(".line span", 2.8,{
     y:200,
     ease: "power4.out",
     delay: 1,
     skewY: 10,
     stagger: {
-        amount: 0.4
+        amount: 0.9
     }
 });
