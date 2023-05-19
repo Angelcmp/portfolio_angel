@@ -345,7 +345,7 @@ header.night{
     z-index: 4;
     background-color: rgba(255, 255, 255, .8);
     width: calc(100% - 80px);
-    height: calc(0% - 80px);
+    /*height: calc(0% - 80px);*/
     margin-inline: auto;
     display: grid;
     align-items: center;
@@ -366,12 +366,9 @@ header.night{
     font-size: 14px;
     font-weight: 700;
     color: var(--dark);
-    background-color: var(--border);
-    opacity: .9;
 }
 
 .tagsinfo{
-    background-color: var(--border);
     font-family: 'IBM Plex Mono', monospace;
     color: var(--navbar);
     font-weight: 500;

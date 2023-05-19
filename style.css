@@ -258,6 +258,13 @@ body.night .text-secondary{
     object-fit: cover;
 }
 
+.trumbnail-p{
+    width: 100%;
+    height: auto;
+    object-fit: cover;
+}
+
+
 .rounded{
     height: 120px;
     width: 120px;
@@ -720,6 +727,7 @@ body.night{
     .explore-work{
         text-align: center;
     }
+    
 
 }
 
