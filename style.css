@@ -29,8 +29,13 @@ body{
     box-sizing: border-box;
 }
 
-a{
+a {
     text-decoration: none;
+    color: white; /* Color blanco por defecto para todos los enlaces */
+}
+
+a:hover {
+    color: rgba(255, 255, 255, 0.8); /* Blanco ligeramente más oscuro en hover */
 }
 
 *>*{
@@ -706,6 +711,10 @@ body.night{
 .tagsinfo a {
     color: white;
     text-decoration: underline;
+}
+
+.tagsinfo a:hover {
+    color: rgba(255, 255, 255, 0.8); /* Blanco ligeramente más oscuro en hover */
 }
 
 /* -- Media Queries -- */
