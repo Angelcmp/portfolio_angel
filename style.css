@@ -579,6 +579,7 @@ img {
 .contact-section h1{
     text-align: center;
     color: var(--secondary);
+    margin-bottom: 10px;
 }
 
 .border{
@@ -602,9 +603,10 @@ img {
     margin: 16px 0;
     border: 0;
     background: var(--border);
-    padding: 20px 40px;
+    padding: 15px 20px;
     outline: none;
     color: var(--navbar);
+    border-radius: 8px;
 }
 
 .contact-form-text:focus{
@@ -621,8 +623,8 @@ textarea.contact-from-text{
     border: 0;
     background: var(--primary-color);
     color: #fff;
-    padding: 12px 50px;
-    border-radius: 20px;
+    padding: 12px 40px;
+    border-radius: 8px;
     cursor: pointer;
     transition: 0.5s;
 }
