@@ -12,23 +12,7 @@ new Masonry("#posts .grid",{
     gutter: 20
 });
 
-// Sticky Navigation
-window.onscroll = function(){ myFunction()};
 
-// get the current value 
-let navbar = document.getElementById("header");
-
-// get the navbar position
-let sticky = navbar.offsetTop;
-
-// sticky function
-function myFunction(){
-    if(window.pageYOffset >= sticky){
-        navbar.classList.add("sticky");
-    }else{
-        navbar.classList.remove("sticky");
-    }
-}
 
 // dark mode
 var content = document.getElementsByTagName('body')[0];
