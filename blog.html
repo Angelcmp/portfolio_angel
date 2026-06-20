@@ -1,175 +1,50 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <!-- font awesome-->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css" integrity="sha512-MV7K8+y+gLIBoVD59lQIYicR65iaqukzvf/nwasF0nqhPay5w/9lJmVM2hMDcnK1OnMGCdVK+iQrJ7lzPJQd1w==" crossorigin="anonymous" referrerpolicy="no-referrer" />
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.3.0/font/bootstrap-icons.css" />
-    <link rel="stylesheet" href="style.css">
-     <!-- swiper slider css file -->
-     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/Swiper/6.4.5/swiper-bundle.min.css" integrity="sha512-m3pAvNriL711NMlhkZHK6K4Tu2/RjtrzyjxZU8mlAbxxoDoURy27KajN1LGTLeEEPvaN12mKAgSCrYEwF9y0jA==" crossorigin="anonymous" />
-    <!-- title -->
-    <title>Blog | Angel</title>
-
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Blog — Angel Campo</title>
+  <link rel="stylesheet" href="style.css">
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIzMiIgaGVpZ2h0PSIzMiIgdmlld0JveD0iMCAwIDMyIDMyIj4KICA8cmVjdCB3aWR0aD0iMzIiIGhlaWdodD0iMzIiIHJ4PSI2IiBmaWxsPSIjZjVmNWY3Ii8+CiAgPHRleHQgeD0iMTYiIHk9IjIyLjUiIHRleHQtYW5jaG9yPSJtaWRkbGUiIGZvbnQtZmFtaWx5PSInSUJNIFBsZXggU2VyaWYnLCBHZW9yZ2lhLCBzZXJpZiIgZm9udC1zaXplPSIyMCIgZm9udC13ZWlnaHQ9IjcwMCIgZmlsbD0iIzFkMWQxZiI+QTwvdGV4dD4KPC9zdmc+">
+  <script>
+    const i18n = {
+      es: { 'section-portfolio': 'Portfolio', 'section-work': 'Proyectos', 'section-blog': 'Blog', 'intro': 'Soy desarrollador y aprendiz de escritor. Estoy enfocado en crear herramientas inteligentes que resuelvan problemas reales. Actualmente desarrollando Solaria y BookmarkCollab, proyectos donde la IA y la web se encuentran.', 'projects-title': 'Proyectos', 'toc-title': 'Contenido', 'back-to-blog': '← Volver al blog' },
+      en: { 'section-portfolio': 'Portfolio', 'section-work': 'Work', 'section-blog': 'Blog', 'intro': "I'm a developer and aspiring writer. I'm focused on building AI tools that solve real problems. Currently developing Solaria and BookmarkCollab, projects where AI and the web come together.", 'projects-title': 'Projects', 'toc-title': 'Contents', 'back-to-blog': '← Back to blog' }
+    };
+    function applyLang(l){ document.documentElement.lang=l; localStorage.setItem('lang',l); var t=document.getElementById('langToggle'); if(t) t.textContent=l==='es'?'EN':'ES'; document.querySelectorAll('[data-i18n]').forEach(function(e){ var k=e.getAttribute('data-i18n'); if(i18n[l]&&i18n[l][k]) e.textContent=i18n[l][k]; }); var tc=document.querySelector('.toc-title'); if(tc&&i18n[l]['toc-title']) tc.textContent=i18n[l]['toc-title']; }
+    function toggleLang(){ var c=localStorage.getItem('lang')||'en'; applyLang(c==='es'?'en':'es'); }
+    (function(){ var l=localStorage.getItem('lang')||'en'; document.documentElement.lang=l; document.addEventListener('DOMContentLoaded',function(){ applyLang(l); }); })();
+  </script>
 </head>
 <body>
-    <div class="first-block"></div>
-    <!-- Header -->
-    <header id="header" class="shadow bg-light">
-        <nav class="container navbar">
-            <a href="index.html" class="nav-brand text-dark">Angel</a>
+  <header>
+    <a href="index.html" class="brand">Angel Campo</a>
+    <nav>
+      <a href="about.html">About</a>
+      <a href="blog.html">Blog</a>
+      <span class="lang-toggle" onclick="toggleLang()" id="langToggle">ES</span>
+    </nav>
+  </header>
 
-            <!-- toggle button -->
-            <button class="toggle-button">
-                <span><i class="fas fa-bars"></i></span>
-            </button>
+  <h1 style="font-size: 1.4rem; font-weight: 600; margin-bottom: 2rem;" data-i18n="section-blog">Blog</h1>
 
+  <ul class="entries">
+    <li>
+      <a href="posts/top10-herramientas-junior-dev.html">
+        <span class="meta">2023</span>
+        <span class="title">Top 10 Herramientas para Junior Web Developers</span>
+      </a>
+    </li>
+  </ul>
 
-            <!-- collapse on toggle button click-->
-            <div class="collapse" id="navdiv">
-                <ul class="navbar-nav">
-                    <a href="index.html" class="nav-link">home</a>
-                    <a href="blog.html" class="nav-link">blog</a>
-                    <a href="work.html" class="nav-link">work</a>
-                    <a href="about.html" class="nav-link">about</a>
-                </ul>
-            </div>
-            
-            <!-- collapse on toggle button click-->
+  <footer>
+    <span>&copy; 2026 Angel Campo</span>
+    <span>
+      <a href="https://github.com/Angelcmp">GitHub</a>
+      <a href="https://www.linkedin.com/in/ancjv/" style="margin-left: 0.75rem;">LinkedIn</a>
+    </span>
+  </footer>
 
-           <!--- <div class="collapse">
-                <ul class="navbar-nav">
-                        <a href="#" class="nav-link"><i class="fab fa-twitter"></i></a>
-                        <a href="#" class="nav-link"><i class="fa-brands fa-github"></i></a>
-                        <a href="#" class="nav-link"><i class="fa-brands fa-linkedin"></i></a>
-                </ul>
-            </div> -->
-            <div class="dark-change">
-                <i class="fa-solid fa-moon" id="dark-change"></i>
-            </div>
-        </nav>
-    </header>
-
-    <!-- Main Site-->
-    <main id="site-main">
-        <!-- Blog Post Section-->
-        <section class="container">
-            <article id="post">
-                <!-- blog title -->
-                <header class="headings">
-                    <div class="text-title-blog text-dark display-4"><a class="color-link" href="posts/top10-herramientas-junior-dev.html">Top 10 Herramientas para Junior Web Developers</a></div>
-                        <div class="meta">
-                                <span class="date">
-                                    <time class="link display-2 text-secondary">
-                                        Feb 02, 2023
-                                    </time>
-                                </span>
-                        </div>  
-                </header>
-                <!-- blog content -->
-                <div class="content text-secondary display-2 secondary-title mt-4">
-                    <p>En este artículo, vamos a ver las 10 mejores herramientas que todo desarrollador web junior debe tener en su cinturón. 
-                        Con el conocimiento adecuado de cómo utilizar cada una de estas 10 herramientas, 
-                        estarás bien encaminado para convertirte en un desarrollador web competente.
-                    </p>
-                    <!-- blog link page -->
-                    <nav class="pagination-clear">
-                        <a href="posts/top10-herramientas-junior-dev.html" class="text-primary">Leer Mas →</a>
-                    </nav>
-                </div>
-            </article>
-            
-            <article id="post">
-                <!-- blog title 
-                <header class="headings">
-                    <div class="text-title-blog text-dark display-4"><a class="color-link" href="#">Looking for some feedback for this rejected track technology</a></div>
-                        <div class="meta">  
-                                <span class="date">
-                                    <time class="link display-2 text-secondary">
-                                        Feb 02, 2023
-                                    </time>
-                                </span>
-                        </div>  
-                </header>
-                blog content 
-                <div class="content text-secondary display-2 secondary-title mt-4">
-                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Eum itaque 
-                        blanditiis adipisci aliquam dolore consequuntur fuga sed consectetur quas perspiciatis?
-                        Lorem ipsum dolor sit amet consectetur adipisicing elit. Eum itaque 
-                        blanditiis adipisci aliquam dolore consequuntur fuga sed consectetur quas perspiciatis?
-                        Lorem ipsum dolor sit amet consectetur adipisicing elit. Eum itaque 
-                        blanditiis adipisci aliquam dolore consequuntur fuga sed consectetur quas perspiciatis?
-                        Lorem ipsum dolor sit amet consectetur adipisicing elit. Eum itaque 
-                        blanditiis adipisci aliquam dolore consequuntur fuga sed consectetur quas perspiciatis?
-                        Lorem ipsum dolor sit amet consectetur adipisicing elit. Eum itaque 
-                        blanditiis adipisci aliquam dolore consequuntur fuga sed consectetur quas perspiciatis?
-                    </p>
-                     blog link page 
-                    <nav class="pagination-clear">
-                        <a class="text-primary" href="#">Leer Mas →</a>
-                    </nav>
-                </div>
-            </article>
-
-            <article id="post">
-                 blog title
-                <header class="headings">
-                    <div class="text-title-blog text-dark display-4"><a class="color-link" href="#">Looking for some feedback for this rejected track technology</a></div>
-                        <div class="meta">  
-                                <span class="date">
-                                    <time class="link display-2 text-secondary">
-                                        Feb 02, 2023
-                                    </time>
-                                </span>
-                        </div>  
-                </header>
-                 blog content 
-                <div class="content text-secondary display-2 secondary-title mt-4">
-                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Eum itaque 
-                        blanditiis adipisci aliquam dolore consequuntur fuga sed consectetur quas perspiciatis?
-                        Lorem ipsum dolor sit amet consectetur adipisicing elit. Eum itaque 
-                        blanditiis adipisci aliquam dolore consequuntur fuga sed consectetur quas perspiciatis?
-                        Lorem ipsum dolor sit amet consectetur adipisicing elit. Eum itaque 
-                        blanditiis adipisci aliquam dolore consequuntur fuga sed consectetur quas perspiciatis?
-                        Lorem ipsum dolor sit amet consectetur adipisicing elit. Eum itaque 
-                        blanditiis adipisci aliquam dolore consequuntur fuga sed consectetur quas perspiciatis?
-                        Lorem ipsum dolor sit amet consectetur adipisicing elit. Eum itaque 
-                        blanditiis adipisci aliquam dolore consequuntur fuga sed consectetur quas perspiciatis?
-                    </p>
-                     blog link page
-                    <nav class="pagination-clear">
-                        <a class="text-primary" href="#">Leer Mas →</a>
-                    </nav>
-                </div>
-            </article>
-
-            -->
-
-
-    
-    </main>
-
-    <!-- footer -->
-    <footer id="footer"> 
-        <!-- copyrights  -->
-        <div class="copyrights">
-            <p class="text-center text-secondary display-2">
-                    © 2023 <a href="#" class="text-primary">Angel Campo</a> - Personal Blog Theme. All rights reserved.
-            </p>
-        </div>
-    </footer>
-   
-
-    <!-- swiper slider cdn -->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/Swiper/6.4.5/swiper-bundle.min.js" integrity="sha512-1LlEYE0qExJ/GUfAJ0k2K2fB5sIvMv/q6ueo3syohvQ3ElWDQVSMUOf39cxaDWHtNu7M6lF6ZC1H6A1m3SvheA==" crossorigin="anonymous"></script>
-    <!-- mansory library for horizontal grid-->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/masonry/4.2.2/masonry.pkgd.min.js" integrity="sha512-JRlcvSZAXT8+5SQQAvklXGJuxXTouyq8oIMaYERZQasB8SBDHZaUbeASsJWpk0UUrf89DP3/aefPPrlMR1h1yQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
-    <!-- Custom JavaScript file -->
-    <script src="main.js"></script>
-
-
-
+  <script src="main.js"></script>
 </body>
 </html>

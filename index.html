@@ -1,104 +1,70 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <!-- font awesome-->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css" integrity="sha512-MV7K8+y+gLIBoVD59lQIYicR65iaqukzvf/nwasF0nqhPay5w/9lJmVM2hMDcnK1OnMGCdVK+iQrJ7lzPJQd1w==" crossorigin="anonymous" referrerpolicy="no-referrer" />
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.3.0/font/bootstrap-icons.css" />
-    <link rel="stylesheet" href="style.css">
-    <!-- gsap effect -->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.11.4/gsap.min.js" integrity="sha512-f8mwTB+Bs8a5c46DEm7HQLcJuHMBaH/UFlcgyetMqqkvTcYg4g5VXsYR71b3qC82lZytjNYvBj2pf0VekA9/FQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
-    <!-- swiper slider css file -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/Swiper/6.4.5/swiper-bundle.min.css" integrity="sha512-m3pAvNriL711NMlhkZHK6K4Tu2/RjtrzyjxZU8mlAbxxoDoURy27KajN1LGTLeEEPvaN12mKAgSCrYEwF9y0jA==" crossorigin="anonymous" />
-    <!-- title -->
-    
-     <title>Angel Campo</title>
-
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Angel Campo</title>
+  <link rel="stylesheet" href="style.css">
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIzMiIgaGVpZ2h0PSIzMiIgdmlld0JveD0iMCAwIDMyIDMyIj4KICA8cmVjdCB3aWR0aD0iMzIiIGhlaWdodD0iMzIiIHJ4PSI2IiBmaWxsPSIjZjVmNWY3Ii8+CiAgPHRleHQgeD0iMTYiIHk9IjIyLjUiIHRleHQtYW5jaG9yPSJtaWRkbGUiIGZvbnQtZmFtaWx5PSInSUJNIFBsZXggU2VyaWYnLCBHZW9yZ2lhLCBzZXJpZiIgZm9udC1zaXplPSIyMCIgZm9udC13ZWlnaHQ9IjcwMCIgZmlsbD0iIzFkMWQxZiI+QTwvdGV4dD4KPC9zdmc+">
+  <script>
+    const i18n = {
+      es: { 'section-portfolio': 'Portfolio', 'section-work': 'Proyectos', 'section-blog': 'Blog', 'intro': 'Soy desarrollador y aprendiz de escritor. Estoy enfocado en crear herramientas inteligentes que resuelvan problemas reales. Actualmente desarrollando Solaria y BookmarkCollab, proyectos donde la IA y la web se encuentran.', 'projects-title': 'Proyectos', 'toc-title': 'Contenido', 'back-to-blog': '← Volver al blog' },
+      en: { 'section-portfolio': 'Portfolio', 'section-work': 'Work', 'section-blog': 'Blog', 'intro': "I'm a developer and aspiring writer. I'm focused on building AI tools that solve real problems. Currently developing Solaria and BookmarkCollab, projects where AI and the web come together.", 'projects-title': 'Projects', 'toc-title': 'Contents', 'back-to-blog': '← Back to blog' }
+    };
+    function applyLang(l){ document.documentElement.lang=l; localStorage.setItem('lang',l); var t=document.getElementById('langToggle'); if(t) t.textContent=l==='es'?'EN':'ES'; document.querySelectorAll('[data-i18n]').forEach(function(e){ var k=e.getAttribute('data-i18n'); if(i18n[l]&&i18n[l][k]) e.textContent=i18n[l][k]; }); var tc=document.querySelector('.toc-title'); if(tc&&i18n[l]['toc-title']) tc.textContent=i18n[l]['toc-title']; }
+    function toggleLang(){ var c=localStorage.getItem('lang')||'en'; applyLang(c==='es'?'en':'es'); }
+    (function(){ var l=localStorage.getItem('lang')||'en'; document.documentElement.lang=l; document.addEventListener('DOMContentLoaded',function(){ applyLang(l); }); })();
+  </script>
 </head>
 <body>
-    <div class="first-block"></div>
-    <!-- Header -->
-    <header id="header" class="shadow bg-light">
-        <nav class="container navbar">
-            <a href="index.html" class="nav-brand text-dark">Angel</a>
-    
-            <!-- toggle button -->
-            <button class="toggle-button">
-                <span><i class="fas fa-bars"></i></span>
-            </button>
-            <!-- collapse on toggle button click-->
-            <div class="collapse" id="navdiv">
-                <ul class="navbar-nav">
-                    <a href="index.html" class="nav-link">home</a>
-                    <a href="blog.html" class="nav-link">blog</a>
-                    <a href="work.html" class="nav-link">work</a>
-                    <a href="about.html" class="nav-link">about</a>
-                    
-                </ul>
-            </div>
-            <div class="dark-change">
-                <i class="fa-solid fa-moon" id="dark-change"></i>
-            </div>
-        </nav>
-        
-    </header>
+  <header>
+    <a href="index.html" class="brand">Angel Campo</a>
+    <nav>
+      <a href="about.html">About</a>
+      <a href="blog.html">Blog</a>
+      <span class="lang-toggle" onclick="toggleLang()" id="langToggle">ES</span>
+    </nav>
+  </header>
 
+  <section class="index-section">
+    <h2 data-i18n="section-portfolio">Portfolio</h2>
+    <p data-i18n="intro">Soy desarrollador y aprendiz de escritor. Estoy enfocado en crear herramientas inteligentes que resuelvan problemas reales. Actualmente desarrollando Solaria y BookmarkCollab, proyectos donde la IA y la web se encuentran.</p>
+  </section>
 
-    <!-- Main Site-->
-    <main id="site-home">
-        <!-- Blog Post Section-->
-    <section class="container-home">
-        <div class="wrapper">
-            <span class="text-decoration">Hello, I am Angel</span>
-            <div class="line">
-                <span class="text-home text-dark display-4">Soy un desarrollador web en Panama </span>
-            </div>
-            <div class="line">
-                <span class="text-home text-dark display-4">Espero que mis proyectos transmitan</span>
-            </div>
-            <div class="line">
-                <span class="text-home text-dark display-4">una pequeña parte de mi creatividad</span>
-            </div>
-            <div class="line">
-                <span class="text-home text-dark display-4">front-end, donde comparto </span>
-            </div>
-            <div class="line">
-                <span class="text-home text-dark display-4">ideas en mi blog sobre</span>
-            </div>
-            <div class="line">
-                <span class="text-home text-dark display-4">desarrollo y informacion tech.</span>
-            </div>
-           
-        </div>
+  <section class="index-section" id="work">
+    <h2 data-i18n="section-work">Proyectos</h2>
 
-        <div class="explore-work">
-            <a href="work.html">mis proyectos</a>
-        </div>
+    <ul class="work-list">
+      <li><a href="https://www.solaria.im/" target="_blank">Solaria</a></li>
+      <li><a href="https://bookmarkcollab.com/" target="_blank">BookmarkCollab</a></li>
+      <li><a href="https://github.com/Angelcmp/NormativaUP" target="_blank">NormativaUP</a></li>
+      <li><a href="https://github.com/Angelcmp/ThroneRP" target="_blank">ThroneRP</a></li>
+      <li><a href="https://github.com/Angelcmp/ggstats" target="_blank">ggstats</a></li>
+    </ul>
+  </section>
 
-        <div class="explore-work">
-            <a href="about.html" target="_blank">acerca de</a>
-        </div>
+  <section class="index-section" id="blog">
+    <h2 data-i18n="section-blog">Blog</h2>
 
-        <div class="explore-work">
-            <a href="https://github.com/Angelcmp" target="_blank">github</a>
-        </div>
-        
+    <ul class="entries">
+      <li>
+        <a href="posts/top10-herramientas-junior-dev.html">
+          <span class="meta">2023</span>
+          <span class="title">Top 10 Herramientas para Junior Web Developers</span>
+        </a>
+      </li>
+    </ul>
+  </section>
 
-    </section>
-    </main>
+  <footer>
+    <span>&copy; 2026 Angel Campo</span>
+    <span>
+      <a href="https://github.com/Angelcmp">GitHub</a>
+      <a href="https://www.linkedin.com/in/ancjv/" style="margin-left: 0.75rem;">LinkedIn</a>
+      <a href="mailto:acmp.git@gmail.com" style="margin-left: 0.75rem;">Email</a>
+    </span>
+  </footer>
 
-    <!-- footer -->
-    
-
-
-    <!-- swiper slider cdn -->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/Swiper/6.4.5/swiper-bundle.min.js" integrity="sha512-1LlEYE0qExJ/GUfAJ0k2K2fB5sIvMv/q6ueo3syohvQ3ElWDQVSMUOf39cxaDWHtNu7M6lF6ZC1H6A1m3SvheA==" crossorigin="anonymous"></script>
-    <!-- mansory library for horizontal grid-->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/masonry/4.2.2/masonry.pkgd.min.js" integrity="sha512-JRlcvSZAXT8+5SQQAvklXGJuxXTouyq8oIMaYERZQasB8SBDHZaUbeASsJWpk0UUrf89DP3/aefPPrlMR1h1yQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
-    <!-- Custom JavaScript file -->
-    <script type="text/javascript" src="main.js"></script>
-
+  <script src="main.js"></script>
 </body>
 </html>

@@ -1,118 +1,80 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
 <head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <!-- font awesome-->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css" integrity="sha512-MV7K8+y+gLIBoVD59lQIYicR65iaqukzvf/nwasF0nqhPay5w/9lJmVM2hMDcnK1OnMGCdVK+iQrJ7lzPJQd1w==" crossorigin="anonymous" referrerpolicy="no-referrer" />
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.3.0/font/bootstrap-icons.css" />
-    <link rel="stylesheet" href="style.css">
-     <!-- swiper slider css file -->
-     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/Swiper/6.4.5/swiper-bundle.min.css" integrity="sha512-m3pAvNriL711NMlhkZHK6K4Tu2/RjtrzyjxZU8mlAbxxoDoURy27KajN1LGTLeEEPvaN12mKAgSCrYEwF9y0jA==" crossorigin="anonymous" />
-     <!-- title -->
-    <title>About | Angel Campo</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>About — Angel Campo</title>
+  <link rel="stylesheet" href="style.css">
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIzMiIgaGVpZ2h0PSIzMiIgdmlld0JveD0iMCAwIDMyIDMyIj4KICA8cmVjdCB3aWR0aD0iMzIiIGhlaWdodD0iMzIiIHJ4PSI2IiBmaWxsPSIjZjVmNWY3Ii8+CiAgPHRleHQgeD0iMTYiIHk9IjIyLjUiIHRleHQtYW5jaG9yPSJtaWRkbGUiIGZvbnQtZmFtaWx5PSInSUJNIFBsZXggU2VyaWYnLCBHZW9yZ2lhLCBzZXJpZiIgZm9udC1zaXplPSIyMCIgZm9udC13ZWlnaHQ9IjcwMCIgZmlsbD0iIzFkMWQxZiI+QTwvdGV4dD4KPC9zdmc+">
+  <script>
+    const i18n = {
+      es: { 'section-portfolio': 'Portfolio', 'section-work': 'Proyectos', 'section-blog': 'Blog', 'intro': 'Soy desarrollador y aprendiz de escritor. Estoy enfocado en crear herramientas inteligentes que resuelvan problemas reales. Actualmente desarrollando Solaria y BookmarkCollab, proyectos donde la IA y la web se encuentran.', 'projects-title': 'Proyectos', 'toc-title': 'Contenido', 'back-to-blog': '← Volver al blog', 'blog-entry-title': 'Top 10 Herramientas para Junior Web Developers', 'solaria-desc': 'Asistente de inteligencia artificial con privacidad como prioridad. Puedes chatear, analizar documentos, escribir código e investigar temas directamente desde el chat, con soporte para múltiples modelos como GPT, Claude, Llama y DeepSeek.', 'bookmark-desc': 'Plataforma para guardar, organizar y compartir marcadores web con tu equipo. Cada enlace se guarda automáticamente con captura de pantalla, metadatos y etiquetas generadas por IA. Soporta colecciones multimedia y colaboración en tiempo real.', 'normativa-desc': 'Un asistente con inteligencia artificial que permite consultar leyes, decretos y normas panameñas usando lenguaje natural. Desarrollado como prototipo universitario, usa un sistema RAG para entender la pregunta y devolver la respuesta exacta basada en los documentos legales indexados.', 'throne-desc': 'Plataforma de roleplay narrativo donde la IA actúa como directora de juego. Crea personajes, genera mundos completos con lore y facciones, y vive campañas largas donde el narrador IA recuerda todo lo que ha sucedido gracias a un sistema de memoria persistente de cuatro capas.', 'ggstats-desc': 'Analizador de estadísticas para DOTA 2. Consulta tu historial de partidas, rendimiento por héroes y métricas detalladas. Proyecto actualmente en pausa.' },
+      en: { 'section-portfolio': 'Portfolio', 'section-work': 'Work', 'section-blog': 'Blog', 'intro': "I'm a developer and aspiring writer. I'm focused on building AI tools that solve real problems. Currently developing Solaria and BookmarkCollab, projects where AI and the web come together.", 'projects-title': 'Projects', 'toc-title': 'Contents', 'back-to-blog': '← Back to blog', 'blog-entry-title': 'Top 10 Tools for Junior Web Developers', 'solaria-desc': 'Privacy-first AI assistant. Chat, analyze documents, write code, and research topics directly from the chat, with support for multiple models like GPT, Claude, Llama, and DeepSeek.', 'bookmark-desc': 'Save, organize, and share bookmarks with your team. Each link is automatically saved with a screenshot, metadata, and AI-generated tags. Supports multimedia collections and real-time collaboration.', 'normativa-desc': 'An AI assistant for consulting Panamanian laws, decrees, and regulations using natural language. Developed as a university prototype, it uses an RAG system to understand questions and return exact answers based on indexed legal documents.', 'throne-desc': 'Narrative roleplay platform where AI acts as a game master. Create characters, generate complete worlds with lore and factions, and play long campaigns where the AI narrator remembers everything thanks to a four-layer persistent memory system.', 'ggstats-desc': 'DOTA 2 statistics analyzer. Check your match history, hero performance, and detailed metrics. Project currently on hold.' }
+    };
+    function applyLang(l){ document.documentElement.lang=l; localStorage.setItem('lang',l); var t=document.getElementById('langToggle'); if(t) t.textContent=l==='es'?'EN':'ES'; document.querySelectorAll('[data-i18n]').forEach(function(e){ var k=e.getAttribute('data-i18n'); if(i18n[l]&&i18n[l][k]) e.textContent=i18n[l][k]; }); var tc=document.querySelector('.toc-title'); if(tc&&i18n[l]['toc-title']) tc.textContent=i18n[l]['toc-title']; }
+    function toggleLang(){ var c=localStorage.getItem('lang')||'en'; applyLang(c==='es'?'en':'es'); }
+    (function(){ var l=localStorage.getItem('lang')||'en'; document.documentElement.lang=l; document.addEventListener('DOMContentLoaded',function(){ applyLang(l); }); })();
+  </script>
 </head>
 <body>
-    <div class="first-block"></div>
-    <!-- Header -->
-    <header id="header" class="shadow bg-light">
-        <nav class="container navbar">
-            <a href="index.html" class="nav-brand text-dark">Angel</a>
-    
-            <!-- toggle button -->
-            <button class="toggle-button">
-                <span><i class="fas fa-bars"></i></span>
-            </button>
+  <header>
+    <a href="index.html" class="brand">Angel Campo</a>
+    <nav>
+      <a href="about.html">About</a>
+      <a href="blog.html">Blog</a>
+      <span class="lang-toggle" onclick="toggleLang()" id="langToggle">EN</span>
+    </nav>
+  </header>
 
-            <!-- collapse on toggle button click-->
-            <div class="collapse">
-                <ul class="navbar-nav">
-                    <a href="index.html" class="nav-link">home</a>
-                    <a href="blog.html" class="nav-link">blog</a>
-                    <a href="work.html" class="nav-link">work</a>
-                    <a href="about.html" class="nav-link">about</a>
-                    
-                </ul>
-            </div>
-            <div class="dark-change">
-                <i class="fa-solid fa-moon" id="dark-change"></i>
-            </div>
-        </nav>
-        
-    </header>
+  <div class="about-header">
+    <img src="assets/profile.jpg" alt="Angel Campo">
+    <div class="bio">
+      <p data-i18n="intro">Soy desarrollador y aprendiz de escritor. Estoy enfocado en crear herramientas inteligentes que resuelvan problemas reales. Actualmente desarrollando Solaria y BookmarkCollab, proyectos donde la IA y la web se encuentran.</p>
+      <p style="margin-top: 0.75rem;">
+        <a href="https://github.com/Angelcmp">GitHub</a> —
+        <a href="https://www.linkedin.com/in/ancjv/">LinkedIn</a> —
+        <a href="mailto:acmp.git@gmail.com">Email</a>
+      </p>
+    </div>
+  </div>
 
-    <!-- about -->
-    <section id="site-main">
-        <div class="container">
-            <div class="posts">
-                <div class="image-section">
-                    <img src="assets/profile.jpg">
-                        <div class="post-tags d-flex flex-wrap justify-content-center">
-                         <a href="https://twitter.com/ancjvx" class="nav-link" target="_blank"><i class="fab fa-twitter"></i></a>
-                </div>
-                </div>
-                    <div class="title-about">
-                        <h2 class="text-decoration text-center">Acerca de Mí</h2>
-                        <p class="text-center text-secondary display-2 secondary-title mt-3">Mi viaje en el desarrollo web y lo que me apasiona.</p>
-                    </div>
-                        <div class="content text-secondary display-2 secondary-title mt-3">
-                                <p>¡Hola! Soy Angel Campo, un apasionado desarrollador web con sede en Panamá, dedicado a crear experiencias digitales cautivadoras y funcionales. Mi enfoque principal se centra en el desarrollo front-end, donde fusiono habilidades técnicas sólidas con una visión creativa para dar vida a interfaces de usuario intuitivas y atractivas.</p>
-                                <p>A lo largo de mi trayectoria, he tenido la oportunidad de trabajar en diversos proyectos, desde sitios web estáticos hasta aplicaciones web interactivas complejas. Mi objetivo primordial en cada proyecto es entregar soluciones de alta calidad que no solo satisfagan las necesidades del usuario, sino que también brinden una experiencia excepcional y memorable.</p>
-                                <p>Poseo una sólida base en tecnologías web fundamentales como HTML, CSS y JavaScript. Actualmente, estoy inmerso en el aprendizaje y la aplicación de frameworks modernos como React, siempre buscando expandir mis conocimientos y mantenerme a la vanguardia en este dinámico campo del desarrollo web.</p>
-                                <p><strong>Conéctate Conmigo:</strong></p>
-                                <ul>
-                                    <li><a href="https://github.com/Angelcmp" target="_blank" class="text-center text-primary display-2 underline"><i class="fab fa-github"></i> Github</a></li>
-                                    <li><a href="https://www.linkedin.com/in/ancjv/" target="_blank" class="text-center text-primary display-2 underline"><i class="fab fa-linkedin"></i> LinkedIn</a></li>
-                                    <li><a href="mailto:acmp.git@gmail.com" class="text-center text-primary display-2 underline"><i class="fas fa-envelope"></i> Contacto</a></li>
-                                </ul>
-                                
-                        </div>
-            </div>
+  <section class="about-section" id="projects">
+    <h2 data-i18n="projects-title">Proyectos</h2>
 
+    <div class="project-item">
+      <h3><a href="https://www.solaria.im/" target="_blank">Solaria</a></h3>
+      <div class="desc" data-i18n="solaria-desc">Asistente de inteligencia artificial con privacidad como prioridad. Puedes chatear, analizar documentos, escribir código e investigar temas directamente desde el chat, con soporte para múltiples modelos como GPT, Claude, Llama y DeepSeek.</div>
+    </div>
 
-                <div class="content text-secondary display-2 secondary-title mt-3">
-                        <p>Más allá de mis habilidades técnicas, me considero un comunicador eficaz y un colaborador entusiasta. Disfruto enormemente trabajando en entornos colaborativos, donde puedo aportar mis ideas y aprender de la experiencia de otros profesionales del desarrollo web.</p>
-                        <p>Estoy siempre en busca de nuevos desafíos y oportunidades para seguir creciendo en mi carrera. Si tienes un proyecto interesante en mente, deseas explorar una colaboración o simplemente quieres conversar sobre desarrollo web, no dudes en ponerte en contacto. ¡Estaré encantado de escucharte!</p>
-                </div>
+    <div class="project-item">
+      <h3><a href="https://bookmarkcollab.com/" target="_blank">BookmarkCollab</a></h3>
+      <div class="desc" data-i18n="bookmark-desc">Plataforma para guardar, organizar y compartir marcadores web con tu equipo. Cada enlace se guarda automáticamente con captura de pantalla, metadatos y etiquetas generadas por IA. Soporta colecciones multimedia y colaboración en tiempo real.</div>
+    </div>
 
-                <div class="contact-section">
-                    <h1 class="text-center text-secondary">Contactame!</h1>
-                    <p class="text-center text-secondary display-2 secondary-title mt-2">¿Tienes un proyecto en mente o quieres colaborar? ¡No dudes en enviarme un mensaje!</p>
-                
-                    <form action="https://formsubmit.co/acmp.git@gmail.com" method="post" class="contact-form">
-                        <input type="text" class="contact-form-text" placeholder="Nombre" name="name" required>
-                        <input type="email" class="contact-form-text" placeholder="Email" name="email" required>
-                        <textarea class="contact-form-text" placeholder="Tu Mensaje" name="message" required></textarea>
-                        <input type="submit" class="contact-form-btn" value="Enviar">
-                    </form>
-                </div>
-                
-        </div>
+    <div class="project-item">
+      <h3><a href="https://github.com/Angelcmp/NormativaUP" target="_blank">NormativaUP</a></h3>
+      <div class="desc" data-i18n="normativa-desc">Un asistente con inteligencia artificial que permite consultar leyes, decretos y normas panameñas usando lenguaje natural. Desarrollado como prototipo universitario, usa un sistema RAG para entender la pregunta y devolver la respuesta exacta basada en los documentos legales indexados.</div>
+    </div>
 
+    <div class="project-item">
+      <h3><a href="https://github.com/Angelcmp/ThroneRP" target="_blank">ThroneRP</a></h3>
+      <div class="desc" data-i18n="throne-desc">Plataforma de roleplay narrativo donde la IA actúa como directora de juego. Crea personajes, genera mundos completos con lore y facciones, y vive campañas largas donde el narrador IA recuerda todo lo que ha sucedido gracias a un sistema de memoria persistente de cuatro capas.</div>
+    </div>
 
-        
-    </section>
-    
-    </main>
+    <div class="project-item">
+      <h3><a href="https://github.com/Angelcmp/ggstats" target="_blank">ggstats</a></h3>
+      <div class="desc" data-i18n="ggstats-desc">Analizador de estadísticas para DOTA 2. Consulta tu historial de partidas, rendimiento por héroes y métricas detalladas. Proyecto actualmente en pausa.</div>
+    </div>
+  </section>
 
-    <!-- footer -->
-    <footer id="footer"> 
-        <!-- copyrights  -->
-        <div class="copyrights">
-            <p class="text-center text-secondary display-2">
-                    © 2023 <a href="#" class="text-primary">Angel Campo</a> - Personal Website. All rights reserved.
-            </p>
-        </div>
-    </footer>
+  <footer>
+    <span>&copy; 2026 Angel Campo</span>
+    <span>
+      <a href="https://github.com/Angelcmp">GitHub</a>
+      <a href="https://www.linkedin.com/in/ancjv/" style="margin-left: 0.75rem;">LinkedIn</a>
+    </span>
+  </footer>
 
-
-    <!-- swiper slider cdn -->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/Swiper/6.4.5/swiper-bundle.min.js" integrity="sha512-1LlEYE0qExJ/GUfAJ0k2K2fB5sIvMv/q6ueo3syohvQ3ElWDQVSMUOf39cxaDWHtNu7M6lF6ZC1H6A1m3SvheA==" crossorigin="anonymous"></script>
-    <!-- mansory library for horizontal grid-->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/masonry/4.2.2/masonry.pkgd.min.js" integrity="sha512-JRlcvSZAXT8+5SQQAvklXGJuxXTouyq8oIMaYERZQasB8SBDHZaUbeASsJWpk0UUrf89DP3/aefPPrlMR1h1yQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
-    <!-- Custom JavaScript file -->
-    <script src="main.js"></script>
-
+  <script src="main.js"></script>
 </body>
 </html>
