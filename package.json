@@ -5,6 +5,9 @@
     "new": "node build.js",
     "new:post": "node build.js"
   },
+  "engines": {
+    "node": "24.x"
+  },
   "devDependencies": {
     "marked": "^15.0.12"
   }
