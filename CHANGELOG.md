@@ -28,7 +28,7 @@ Se reescribió todo el sitio con un enfoque minimalista, tipográfico y sin depe
 - Sin formulario de contacto (links en bio + footer)
 
 #### `blog.html` + `article.html`
-- Formato compacto año + título estilo rauchg
+- Formato compacto
 - Artículos con layout de 2 columnas: contenido + aside TOC sticky
 - TOC generado automáticamente desde los `<h2>` con resaltado de sección activa via IntersectionObserver
 
