@@ -2,6 +2,65 @@
 
 Este documento detalla las modificaciones realizadas en el proyecto `portfolio_angel`.
 
+## Versión 2.0.0 — Junio 2026
+
+### Rediseño completo — Minimalista tipo rauchg.com
+
+Se reescribió todo el sitio con un enfoque minimalista, tipográfico y sin dependencias externas.
+
+#### `style.css`
+- Reducción de ~860 a 198 líneas (77% menos)
+- Variables CSS: fondo `#f5f5f7`, texto `#1d1d1f`, azul Apple para links
+- Tipografía IBM Plex Serif via Google Fonts
+- Animaciones: fade-in de página, hover arrow en Work, translateY en proyectos
+- Layout de artículo con aside sticky para TOC (`.has-sidebar`)
+- Media queries responsive para mobile
+
+#### `index.html`
+- Secciones claras: Portfolio (intro), Work (solo títulos con hover arrow), Blog (año + título)
+- Sin descripciones de proyectos, solo títulos con enlaces
+- Paleta de colores Apple
+
+#### `about.html`
+- Foto + bio con enlaces a GitHub/LinkedIn/Email
+- 5 proyectos actuales: Solaria, BookmarkCollab, NormativaUP, ThroneRP, ggstats
+- Descripciones narrativas sin tags de lenguajes
+- Sin formulario de contacto (links en bio + footer)
+
+#### `blog.html` + `article.html`
+- Formato compacto año + título estilo rauchg
+- Artículos con layout de 2 columnas: contenido + aside TOC sticky
+- TOC generado automáticamente desde los `<h2>` con resaltado de sección activa via IntersectionObserver
+
+#### `main.js`
+- Transiciones de página con fade-out al navegar entre links internos
+- Generador automático de tabla de contenidos
+- Contador de vistas via countapi.xyz
+- Sistema de internacionalización ES/EN
+
+#### Internacionalización (i18n)
+- Toggle ES/EN en el nav de todas las páginas
+- Inline script en el `<head>` para aplicar traducciones antes del renderizado
+- Traducciones en localStorage, persisten entre páginas
+- Por defecto: inglés
+- Traduce: títulos de sección, intro, proyectos, TOC, descripciones
+
+#### Favicon
+- SVG inline: fondo gris claro + letra A en IBM Plex Serif
+
+#### Archivos eliminados
+- `work.html`, `work2.html` (integrados en about)
+- `mixitup.min.js` (sin uso)
+- CDNs: Font Awesome, Bootstrap Icons, Swiper, Masonry, GSAP
+
+#### Sistema de publicación (build.js)
+- Script Node.js que convierte Markdown a HTML post
+- Usa `marked` para conversión MD → HTML
+- Genera post completo con layout, TOC, i18n y contador
+- Actualiza automáticamente `blog.html` e `index.html`
+- Frontmatter requerido: title, date
+- Uso: `npm run new _drafts/mi-post.md`
+
 ## Versión 1.1.0 - 4 de Julio de 2025
 
 ### Mejoras Generales

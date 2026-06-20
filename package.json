@@ -1,0 +1,11 @@
+{
+  "name": "portfolio-angel",
+  "private": true,
+  "scripts": {
+    "new": "node build.js",
+    "new:post": "node build.js"
+  },
+  "devDependencies": {
+    "marked": "^15.0.12"
+  }
+}

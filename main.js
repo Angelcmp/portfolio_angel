@@ -1,31 +1,79 @@
-let toggle = document.querySelector("#header .toggle-button");
-let collapse = document.querySelectorAll("#header .collapse");
+// View counter for blog posts
+document.addEventListener('DOMContentLoaded', () => {
+  const el = document.getElementById('viewCount');
+  if (!el) return;
+  const key = window.location.pathname.replace(/\//g, '-').replace(/^-/, '');
+  fetch('https://api.countapi.xyz/hit/angelcmp/' + key)
+    .then(r => r.json())
+    .then(d => { if (d.value) el.textContent = d.value.toLocaleString(); })
+    .catch(() => { el.textContent = '0'; });
+});
 
-toggle.addEventListener('click' , function(){
-    collapse.forEach(col => col.classList.toggle("collapse-toggle"));
-})
+// Page transition: fade out on internal link click
+document.addEventListener('click', (e) => {
+  const link = e.target.closest('a');
+  if (!link) return;
+  const href = link.getAttribute('href');
+  if (!href || href.startsWith('http') || href.startsWith('#') || href.startsWith('mailto:') || href.startsWith('javascript:')) return;
+  if (e.metaKey || e.ctrlKey || e.shiftKey || e.altKey) return;
 
+  e.preventDefault();
+  document.body.classList.add('is-leaving');
+  setTimeout(() => {
+    window.location.href = href;
+  }, 250);
+});
 
+// Auto-generate table of contents from article h2 headings
+document.addEventListener('DOMContentLoaded', () => {
+  const article = document.querySelector('article');
+  const toc = document.getElementById('toc');
+  if (!article || !toc) return;
 
+  const headings = article.querySelectorAll('h2');
+  if (headings.length === 0) {
+    const sidebar = toc.closest('.toc-sidebar');
+    if (sidebar) sidebar.style.display = 'none';
+    return;
+  }
 
+  const title = document.createElement('div');
+  title.className = 'toc-title';
+  title.textContent = 'Contenido';
+  toc.appendChild(title);
 
-// dark mode
-var content = document.getElementsByTagName('body')[0];
-        var darkMode = document.getElementById('dark-change');
-        darkMode.addEventListener('click', function(){
-            darkMode.classList.toggle('active');
-            content.classList.toggle('night');
-        })
+  const ul = document.createElement('ul');
+  headings.forEach((h, i) => {
+    const id = 'toc-' + i;
+    h.id = id;
+    h.style.scrollMarginTop = '2rem';
+    const li = document.createElement('li');
+    const a = document.createElement('a');
+    a.href = '#' + id;
+    a.textContent = h.textContent;
+    li.appendChild(a);
+    ul.appendChild(li);
+  });
 
-// Lines animation
-const textrev = gsap.timeline();
+  toc.appendChild(ul);
 
-textrev.from(".line span", 2.8,{
-    y:200,
-    ease: "power4.out",
-    delay: 1,
-    skewY: 10,
-    stagger: {
-        amount: 0.9
-    }
+  const tocLinks = ul.querySelectorAll('a');
+  const observer = new IntersectionObserver(
+    (entries) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          tocLinks.forEach((l) => l.classList.remove('active'));
+          const active = ul.querySelector(`a[href="#${entry.target.id}"]`);
+          if (active) active.classList.add('active');
+        }
+      });
+    },
+    { rootMargin: '-20% 0px -60% 0px' }
+  );
+
+  headings.forEach((h) => observer.observe(h));
+
+  // Re-apply translations (TOC title needs it)
+  const saved = localStorage.getItem('lang') || 'en';
+  if (typeof applyLang === 'function') applyLang(saved);
 });
